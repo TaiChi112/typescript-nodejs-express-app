@@ -1,4 +1,4 @@
-import express from 'express';
+import express,{Request,Response} from 'express';
 import bodyParser from 'body-parser';
 import UserController from './controllers/UserController';
 
@@ -7,6 +7,9 @@ const port = 8080;
 
 app.use(bodyParser.json());
 
+app.get('/',(req:Request,res:Response)=>{
+  res.send('Hello Typescript');
+  })
 app.get('/users', UserController.getAllUsers);
 app.get('/users/:id', UserController.getUserById);
 app.post('/users', UserController.createUser);
